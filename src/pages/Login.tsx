@@ -11,7 +11,7 @@ import PHInput from './../components/form/PHInput';
 
 const defaultValues = {
   userId: 'A-0001',
-  Password: 'test1234',
+  password: 'test1234',
 };
 
 const Login = () => {

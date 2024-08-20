@@ -3,8 +3,9 @@ import { sidebarItemsGenerator } from '../../utils/sidebarItemsGenerator';
 import { adminPaths } from '../../routes/admin.routes';
 import { facultyPaths } from '../../routes/faculty.routes';
 import { studentPaths } from '../../routes/student.routes';
-import { getCurrentUser } from './../../redux/features/auth/authSlice.ts';
-import { useAppSelector } from './../../redux/hooks.ts';
+import { useAppSelector } from '../../redux/hooks';
+import { getCurrentUser } from '../../redux/features/auth/authSlice';
+
 const { Sider } = Layout;
 
 const userRole = {
@@ -18,7 +19,7 @@ const Sidebar = () => {
 
   let sidebarItems;
 
-  switch (user?.role) {
+  switch (user!.role) {
     case userRole.ADMIN:
       sidebarItems = sidebarItemsGenerator(adminPaths, userRole.ADMIN);
       break;
@@ -32,19 +33,23 @@ const Sidebar = () => {
     default:
       break;
   }
+
   return (
-    <Sider breakpoint="lg" collapsedWidth="0">
+    <Sider
+      breakpoint="lg"
+      collapsedWidth="0"
+      style={{ height: '100vh', position: 'sticky', top: '0', left: '0' }}
+    >
       <div
         style={{
           color: 'white',
-          textAlign: 'center',
           height: '4rem',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
         }}
       >
-        <h1>PH UNI</h1>
+        <h1>PH Uni</h1>
       </div>
       <Menu
         theme="dark"

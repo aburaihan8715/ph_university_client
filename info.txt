@@ -1,2 +1,6 @@
 NOTE: 
-module-34 start
+module-34 of 4 done
+
+
+// FIXME:
+==> my-offered-corses is not working

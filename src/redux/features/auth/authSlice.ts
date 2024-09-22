@@ -7,6 +7,7 @@ export type TUser = {
   iat: number;
   exp: number;
 };
+
 type TAuthState = {
   user: null | TUser;
   token: null | string;

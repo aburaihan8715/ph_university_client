@@ -30,13 +30,14 @@ const OfferCourse = () => {
     { name: 'sort', value: 'year' },
     { name: 'status', value: 'UPCOMING' },
   ]);
-  console.log(semesterRegistrationData);
   const { data: academicFacultyData } = useGetAcademicFacultiesQuery(undefined);
 
   const { data: academicDepartmentData } =
     useGetAcademicDepartmentsQuery(undefined);
 
   const { data: coursesData } = useGetAllCoursesQuery(undefined);
+
+  // console.log(coursesData);
 
   const { data: facultiesData, isFetching: fetchingFaculties } =
     useGetCourseFacultiesQuery(courseId, { skip: !courseId });

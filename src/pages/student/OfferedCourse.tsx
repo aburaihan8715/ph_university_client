@@ -11,7 +11,7 @@ type TCourse = {
 const OfferedCourse = () => {
   const { data: offeredCourseData } = useGetAllOfferedCoursesQuery(undefined);
   const [enroll] = useEnrolCourseMutation();
-  console.log(offeredCourseData);
+  // console.log(offeredCourseData);
 
   const singleObject = offeredCourseData?.data?.reduce((acc: TCourse, item) => {
     const key = item.course.title;
@@ -45,7 +45,7 @@ const OfferedCourse = () => {
     <Row gutter={[0, 20]}>
       {modifiedData.map((item) => {
         return (
-          <Col span={24} style={{ border: 'solid #d4d4d4 2px' }}>
+          <Col key={item._id} span={24} style={{ border: 'solid #d4d4d4 2px' }}>
             <div style={{ padding: '10px' }}>
               <h2>{item.courseTitle}</h2>
             </div>
@@ -53,6 +53,7 @@ const OfferedCourse = () => {
               {item.sections.map((section: any) => {
                 return (
                   <Row
+                    key={section}
                     justify="space-between"
                     align="middle"
                     style={{ borderTop: 'solid #d4d4d4 2px', padding: '10px' }}
@@ -61,7 +62,7 @@ const OfferedCourse = () => {
                     <Col span={5}>
                       days:{' '}
                       {section.days.map((day: string) => (
-                        <span> {day} </span>
+                        <span key={day}> {day} </span>
                       ))}
                     </Col>
                     <Col span={5}>Start Time: {section.startTime} </Col>

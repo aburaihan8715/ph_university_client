@@ -8,12 +8,12 @@ const MySchedule = () => {
     <div>
       {data?.data?.map((item: any) => {
         return (
-          <div>
+          <div key={item._id}>
             <div>{item.course.title}</div>
             <div>{item.offeredCourse.section}</div>
             <div>
               {item.offeredCourse.days.map((item: any) => (
-                <span> {item}</span>
+                <span key={item}> {item}</span>
               ))}
             </div>
           </div>

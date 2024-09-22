@@ -35,8 +35,6 @@ const CreateCourse = () => {
         : [],
     };
 
-    console.log(courseData);
-
     try {
       const res = (await createCourse(courseData)) as TResponse<any>;
       console.log(res);
